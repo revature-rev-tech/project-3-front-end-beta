@@ -7,6 +7,7 @@ import { Cart, CartAndItems, CartItem } from "../../models/cart.model";
 import { TokenStorageService } from "../../services/token-storage.service";
 import { CartItemService } from "../../services/cart-item.service";
 import { CartAndItemsService } from "../../services/cart-and-items.service";
+// import * as internal from 'stream';
 
 @Component({
   selector: 'app-store-product',
@@ -24,6 +25,8 @@ export class StoreProductComponent implements OnInit {
   saveIndex: number = 0;
   userId: any = 0;
   cartAndItems: CartAndItems = new CartAndItems()
+  filteredProducts: Product[] = [];
+  filterFlag: boolean = false;
 
   //Array for Form Fields to add new Product
   newProduct: Product = {
@@ -145,6 +148,25 @@ export class StoreProductComponent implements OnInit {
         console.log(error);
       }
     });
+  }
+
+  filterByCategory(categoryName: String) {
+    this.allProducts.forEach((product) => {
+      if (product.productCategory == categoryName) {this.filteredProducts.push(product)}
+    });
+
+    this.allDiscountProducts.forEach((product) => {
+      if (product.productCategory == categoryName) {this.filteredProducts.push(product)}
+    });
+
+    this.filterFlag = true;
+  }
+
+ 
+
+  unfilter() {
+    this.filterFlag=false;
+    this.filteredProducts = [];
   }
 
 
