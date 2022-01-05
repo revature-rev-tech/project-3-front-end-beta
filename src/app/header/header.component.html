@@ -45,8 +45,8 @@
             <div class="sb-example-1">
                 <div class="search">
                     <input type="text" class="searchTerm" size="100" maxlength="150" name="search_text"
-                        placeholder="What are you looking for?" id="search_text" style="color: black;" />
-                    <button type="submit" class="searchButton"><i class="fa fa-search"
+                        placeholder="What are you looking for?" id="search_text" style="color: black;" [(ngModel)]="searchQuery" />
+                    <button type="submit" class="searchButton" (click)="searchStore()"><i class="fa fa-search"
                         style="color: white;"></i></button>
                 </div>
             </div>
