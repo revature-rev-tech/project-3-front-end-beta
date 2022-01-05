@@ -1,13 +1,5 @@
-&nbsp;
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproductCenter">
-  Add Product
-</button>
-&nbsp;
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-  Add Discount
-</button>
-
-<div class="modal fade" id="addproductCenter" tabindex="-1" role="dialog" aria-labelledby="addproductTitle" aria-hidden="true">
+<div class="modal fade" id="addproductCenter" tabindex="-1" role="dialog" aria-labelledby="addproductTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -44,9 +36,9 @@
               aria-describedby="productQtyHelp">
           </div>
           <div class="mb-3">
-              <label for="image_url" class="form-label"> Select Img File</label>
-              <input #imageInput type="file" formControlName="image_url" class="form-control" id="InputProductImgUrl"
-                aria-describedby="productImgUrlHelp" accept="image/*" (change)="uploadImage($event)">
+            <label for="image_url" class="form-label"> Select Img File</label>
+            <input #imageInput type="file" formControlName="image_url" class="form-control" id="InputProductImgUrl"
+              aria-describedby="productImgUrlHelp" accept="image/*" (change)="uploadImage($event)">
           </div>
           <div class="mb-3">
             <label for="product_description" class="form-label">Product description</label>
@@ -58,8 +50,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button"  (click)="addProducts()"
-        class="btn btn-primary">Add</button>
+        <button type="button" (click)="addProducts()" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
@@ -69,6 +60,15 @@
   <br>
   <h2>Product Inventory</h2>
   <br>
+  &nbsp;
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproductCenter">
+    Add Product
+  </button>
+  &nbsp;
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+    Add Discount
+  </button>
+  <br><br>
   <table>
     <tr>
       <th scope="col">Product Id </th>
@@ -87,16 +87,16 @@
       <td>{{row.productName}}</td>
       <td>{{row.productCategory}}</td>
       <td>{{row.discountPercentage}}%</td>
-      <td>{{row.productCost-row.productCost*row.discountPercentage/100 | currency }}</td>
+      <td>{{row.productCost-row.productCost*row.discountPercentage | currency }}</td>
       <td>{{row.productQty}}</td>
       <td>{{row.productSku}}</td>
       <!-- <td>{{row.imageUrl}}</td> -->
       <td>{{row.productDescription}}</td>
       <td> <button (click)="onDiscountEditRow(row)" type="button" class="btn btn-success" data-bs-toggle="modal"
-        data-bs-target="#exampleModal3" class="btn btn-info">Edit Discount</button>
+          data-bs-target="#exampleModal3" class="btn btn-warning"><i class="fa fa-edit"></i></button>
       </td>
       <td> <button (click)="deleteDiscountProducts(row.discountId)" type="button" class="btn btn-secondary"
-        data-bs-toggle="" class="btn btn-info">Remove Discount</button>
+          data-bs-toggle="" class="btn btn-dark"><i class="fa fa-trash-o"></i></button>
       </td>
     </tr>
     <tr *ngFor="let row of allProducts">
@@ -109,13 +109,13 @@
       <td>{{row.productSku}}</td>
       <td>{{row.productDescription}}</td>
       <td> <button (click)="onEditRow(row)" type="button" class="btn btn-success" data-bs-toggle="modal"
-        data-bs-target="#exampleModal" class="btn btn-info">Edit Product</button>
+          data-bs-target="#exampleModal" class="btn btn-info"><i class="fa fa-edit"></i></button>
       </td>
       <td> <button (click)="deleteProduct(row.productId)" type="button" class="btn btn-secondary" data-bs-toggle=""
-        class="btn btn-info">Remove Product</button>
+          class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
       </td>
     </tr>
-    </table>
+  </table>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -168,7 +168,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button"  (click)="updateProducts()" class="btn btn-primary">Update</button>
+        <button type="button" (click)="updateProducts()" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>
@@ -189,12 +189,12 @@
           <div class="mb-3">
             <label for="product_percentage" class="form-label">Product Discount Percentage</label>
             <input type="text" formControlName="discount_percentage" class="form-control" id="InputProductPercentage "
-              aria-describedby="productPercentageHelp">
+              aria-describedby="productPercentageHelp" placeholder="Please enter decimal value (ex. 0.20 = 20%)">
           </div>
           <div class="mb-3">
             <label for="product_discount_description" class="form-label">Product Discount Description</label>
             <textarea type="text" formControlName="discount_description" class="form-control"
-              id="InputProductDescription " aria-describedby="productDescriptionHelp">
+              id="InputProductDescription " aria-describedby="productDescriptionHelp" placeholder="Black Friday Deal">
               </textarea>
           </div>
           <div class="mb-3">
@@ -212,7 +212,7 @@
   </div>
 </div>
 
-  <!-- Discount Products Section  Modal form -->
+<!-- Discount Products Section  Modal form -->
 <!-- Discount Products Section Modal form -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

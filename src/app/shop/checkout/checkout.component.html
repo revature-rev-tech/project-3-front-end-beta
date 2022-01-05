@@ -28,7 +28,7 @@
             </div>
             <div class="entry-item-cost d-flex flex-column align-item-end my-cloumn3 active ">
               <div class="contact-shop ml-auto d-flex flex-row ">
-                <h6>Contact shop</h6>
+                <h6>Sold by Rev-Tech.com</h6>
               </div>
               <div class="d-flex flex-row align-items-start ">
                 <select class="form-select " aria-label="Default select example" (change)="changeQuantity(cartcheckout, $event.target)">
@@ -61,7 +61,7 @@
 
               <!-- <i style="font-size: 150% ; color: red; width: 200px; height: auto " class="fas fa-shopping-cart "></i> -->
               <div class="item-decrription " *ngIf="cartcheckout.productAndDiscount.discountPercentage > 0.01 ">
-                {{"Discounted for:" + cartcheckout.productAndDiscount.discountDescription }}</div> <br>
+                {{"Discounted for: " + cartcheckout.productAndDiscount.discountDescription }}</div> <br>
 
               <div class="item-decrription " *ngIf="cartcheckout.productAndDiscount.discountPercentage < 0.01" [ngStyle]="{'visibility': 'hidden'}">
                 {{cartcheckout.productAndDiscount.discountDescription }}</div> <br>
