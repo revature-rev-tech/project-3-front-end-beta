@@ -27,6 +27,7 @@ export class StoreProductComponent implements OnInit {
   cartAndItems: CartAndItems = new CartAndItems()
   filteredProducts: Product[] = [];
   filterFlag: boolean = false;
+  hideFlag: boolean = false;
 
   //Array for Form Fields to add new Product
   newProduct: Product = {
@@ -159,7 +160,7 @@ export class StoreProductComponent implements OnInit {
     this.allDiscountProducts.forEach((product) => {
       if (product.productCategory == categoryName) {this.filteredProducts.push(product)}
     });
-
+    this.hideFlag = true;
     this.filterFlag = true;
   }
 
@@ -169,7 +170,31 @@ export class StoreProductComponent implements OnInit {
     this.filterFlag=false;
     this.filteredProducts = [];
     sessionStorage.removeItem("searchQuery");
+    this.hideFlag = false;
   }
 
+  returnQuery() {
+    return sessionStorage.getItem("searchQuery");
+  }
+
+  searchedProducts(searched: string|null) {
+    let returnedSet: Product[] = [];
+    if (searched != null) {
+      this.hideFlag = true;
+      let searchString: string = searched;
+      console.log(searchString);
+      this.allProducts.forEach((product) => {
+        if (product.productName == searchString) {
+          returnedSet.push(product);
+        }
+      });
+      this.allDiscountProducts.forEach((product) => {
+        if (product.productName == searchString) {
+          returnedSet.push(product);
+        }
+      });
+    }
+    return returnedSet;
+  }
 
 }

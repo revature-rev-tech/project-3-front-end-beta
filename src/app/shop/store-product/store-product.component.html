@@ -13,6 +13,21 @@
       <!-- Page content -->
       <div class='container-fluid'>
         <div class="content">
+          <div class="card-deck" *ngIf="returnQuery()">
+            <div class="card" *ngFor="let row of searchedProducts(returnQuery())" >
+                <img id="image-size" class="card-img-top" src="{{row.imageUrl}}" width="auto" height="auto" />
+                <div class="card-body">
+                    <p class="card-text"></p>
+                </div>
+                <div class="card-footer">
+                    <h5 class="card-title font-weight-bold" class="parLength"> {{row.productName}}</h5>
+                    <p class="card-text">{{row.productCost | currency}}</p>
+                    <p class="card-text" class="parLength">{{row.productDescription}}</p>
+                    <p><button class="btn-danger" (click)="goToProduct(row.productId)">View Details</button></p>
+                    <small class="text-muted">{{row.productSku}}</small>
+                </div>
+            </div>
+          </div>
           <div class="card-deck" *ngIf="filterFlag">
             <div class="card" *ngFor="let row of filteredProducts" >
                 <img id="image-size" class="card-img-top" src="{{row.imageUrl}}" width="auto" height="auto" />
@@ -28,9 +43,8 @@
                 </div>
             </div>
           </div>
-          <div class="card-deck" *ngIf="!filterFlag">
+          <div class="card-deck" *ngIf="!hideFlag">
             <div class="card" *ngFor="let row of allDiscountProducts">
-              {{row.productCategory}}
               <img id="image-size" class="card-img-top" src="{{row.imageUrl}}" width="auto" height="auto" />
               <div class="card-body">
                 <p class="card-text"></p>
