@@ -86,7 +86,7 @@
       <td>{{row.productId}}</td>
       <td>{{row.productName}}</td>
       <td>{{row.productCategory}}</td>
-      <td>{{row.discountPercentage}}</td>
+      <td>{{row.discountPercentage}}%</td>
       <td>{{row.productCost-row.productCost*row.discountPercentage/100 | currency }}</td>
       <td>{{row.productQty}}</td>
       <td>{{row.productSku}}</td>
@@ -197,43 +197,51 @@
               id="InputProductDescription " aria-describedby="productDescriptionHelp">
               </textarea>
           </div>
+          <div class="mb-3">
+            <label for="product_id" class="form-label">Product Id</label>
+            <input type="number" formControlName="product_id" class="form-control" id="InputProductId "
+              aria-describedby="productIdHelp">
+          </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" (click)="addDiscountProducts()" class="btn btn-primary">Add Discount</button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Discount Products Section  Modal form -->
-  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Discount</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="formValueDiscount">
-            <div class="mb-3">
-              <label for="product_percentage" class="form-label">Product Discount Percentage</label>
-              <input type="text" formControlName="discount_percentage" class="form-control" id="InputProductPercentage "
-                aria-describedby="productPercentageHelp">
-            </div>
-            <div class="mb-3">
-              <label for="product_discount_description" class="form-label">Product Discount Description</label>
-              <textarea type="text" formControlName="discount_description" class="form-control"
-                id="InputProductDescription " aria-describedby="productDescriptionHelp">
-                  </textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" (click)="updateDiscountProducts()" class="btn btn-primary">Update</button>
-        </div>
+<!-- Discount Products Section Modal form -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Discount</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValueDiscount">
+          <div class="mb-3">
+            <label for="product_percentage" class="form-label">Product Discount Percentage</label>
+            <input type="text" formControlName="discount_percentage" class="form-control" id="InputProductPercentage "
+              aria-describedby="productPercentageHelp">
+          </div>
+          <div class="mb-3">
+            <label for="product_discount_description" class="form-label">Product Discount Description</label>
+            <textarea type="text" formControlName="discount_description" class="form-control"
+              id="InputProductDescription " aria-describedby="productDescriptionHelp">
+              </textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="updateDiscountProducts()" class="btn btn-primary">Update Discount</button>
       </div>
     </div>
-
   </div>
+</div>

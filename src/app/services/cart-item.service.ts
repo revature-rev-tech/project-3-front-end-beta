@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { CartItem } from '../models/cart.model';
+import {Instance} from "../models/Instance";
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { CartItem } from '../models/cart.model';
 
 export class CartItemService {
 
-  baseUrl = "http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/api/cart-items";
+  baseUrl = Instance.url + "/api/cart-items";
 
   constructor(private http: HttpClient) { }
 

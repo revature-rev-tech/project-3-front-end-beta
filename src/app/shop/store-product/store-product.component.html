@@ -18,7 +18,7 @@
               </div>
               <div class="card-footer">
                 <h5 class="card-title font-weight-bold" class="parLength"> {{row.productName}}</h5>
-                <p class="card-text">{{row.productCost-row.productCost*row.discountPercentage | currency }}
+                <p class="card-text">{{row.productCost-row.productCost*row.discountPercentage/100 | currency }}
                   <s>{{row.productCost |
                     currency}}</s>
                 </p>

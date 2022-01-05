@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import {Instance} from "../models/Instance";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from "rxjs";
 export class FileUploadService {
 
   public files: any[] = [];
-  baseUrl = "http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/file";
+  baseUrl = Instance.url + "/file";
 
 
   constructor(private http: HttpClient) {

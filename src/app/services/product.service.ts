@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Discount, Product, ProductAndDiscount } from '../models/product.model';
+import {Instance} from "../models/Instance";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   //products endpoints
-  productsUrl = "http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/api/products";
-  productsUrl2 = "http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/combined/Disc/Products";
-  discountUrl = "http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/discounts";
+  productsUrl = Instance.url + "/api/products";
+  productsUrl2 = Instance.url + "/combined/Disc/Products";
+  discountUrl = Instance.url + "/discounts";
 
   // add other endpoints below if needed
 

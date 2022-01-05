@@ -7,7 +7,6 @@ import { Cart, CartAndItems, CartItem } from "../../models/cart.model";
 import { TokenStorageService } from "../../services/token-storage.service";
 import { CartItemService } from "../../services/cart-item.service";
 import { CartAndItemsService } from "../../services/cart-and-items.service";
-// import * as internal from 'stream';
 
 @Component({
   selector: 'app-store-product',

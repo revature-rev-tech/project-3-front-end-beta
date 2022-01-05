@@ -2,8 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
+import {Instance} from "../models/Instance";
 
-const AUTH_API = 'http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/api/auth/';
+const AUTH_API = Instance.url + '/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
