@@ -151,6 +151,7 @@ export class StoreProductComponent implements OnInit {
   }
 
   filterByCategory(categoryName: String) {
+    this.filteredProducts = [];
     this.allProducts.forEach((product) => {
       if (product.productCategory == categoryName) {this.filteredProducts.push(product)}
     });
@@ -167,6 +168,7 @@ export class StoreProductComponent implements OnInit {
   unfilter() {
     this.filterFlag=false;
     this.filteredProducts = [];
+    sessionStorage.removeItem("searchQuery");
   }
 
 
