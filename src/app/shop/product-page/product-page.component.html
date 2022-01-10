@@ -88,15 +88,130 @@
                 </ul>
             </aside>
         </div> row.// -->
+        <div class="container">
+          <form action="action_page.php">
+        
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="userId">UserID</label>
+            <input type="text" id="userId" name="userId" placeholder="Your user ID would go here">
+
+            <label for="productId">ProductID</label>
+            <input type="text" id="productId" name="productId" placeholder="Product ID would go here">
+            
+            <label for="rating">Rating</label>
+            <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span>
+
+            <!-- <label for="grade">Country</label>
+            <select id="grade" name="">
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Average">Average</option>
+              <option value="Poor">Poor</option>
+              <option value="Terrible">Terrible</option>
+            </select> -->
+
+            <br>
+            <br>
+            
+            <label for="subject">Review</label>
+            <textarea id="subject" name="subject" placeholder="Write your review here" style="height:200px"></textarea>
+        
+            <input type="submit" value="Submit">
+        
+          </form>
+        </div>
         <hr>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div class="container-fluid px-1 py-5 mx-auto">
+          <div class="row justify-content-center">
+              <div class="col-xl-7 col-lg-8 col-md-10 col-12 text-center mb-5">
+                  <div class="card">
+                      <div class="row justify-content-left d-flex">
+                          <div class="col-md-4 d-flex flex-column">
+                              <div class="rating-box">
+                                  <h1 class="pt-4">4.0</h1>
+                                  <p class="">out of 5</p>
+                              </div>
+                              <div> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span> </div>
+                          </div>
+                          <div class="col-md-8">
+                              <div class="rating-bar0 justify-content-center">
+                                  <table class="text-left mx-auto">
+                                      <tr>
+                                          <td class="rating-label">Excellent</td>
+                                          <td class="rating-bar">
+                                              <div class="bar-container">
+                                                  <div class="bar-5"></div>
+                                              </div>
+                                          </td>
+                                          <td class="text-right">123</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="rating-label">Good</td>
+                                          <td class="rating-bar">
+                                              <div class="bar-container">
+                                                  <div class="bar-4"></div>
+                                              </div>
+                                          </td>
+                                          <td class="text-right">23</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="rating-label">Average</td>
+                                          <td class="rating-bar">
+                                              <div class="bar-container">
+                                                  <div class="bar-3"></div>
+                                              </div>
+                                          </td>
+                                          <td class="text-right">10</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="rating-label">Poor</td>
+                                          <td class="rating-bar">
+                                              <div class="bar-container">
+                                                  <div class="bar-2"></div>
+                                              </div>
+                                          </td>
+                                          <td class="text-right">3</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="rating-label">Terrible</td>
+                                          <td class="rating-bar">
+                                              <div class="bar-container">
+                                                  <div class="bar-1"></div>
+                                              </div>
+                                          </td>
+                                          <td class="text-right">0</td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="row d-flex">
+                          <div class=""> <img class="profile-pic"> </div>
+                          <div class="d-flex flex-column">
+                              <h3 class="mt-2 mb-0">Name</h3>
+                              <div>
+                                  <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span></p>
+                              </div>
+                          </div>
+                          <div class="ml-auto">
+                              <p class="text-muted pt-5 pt-sm-3">10 Jan</p>
+                          </div>
+                      </div>
+                      <div class="row text-left">
+                          <h4 class="blue-text mt-3">"This is where the title would go"</h4>
+                          <p class="content">This is where your product description would go, right here underneath the title that is blue right above.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
       </div> <!-- card-body.// -->
     </article>
   </div>
