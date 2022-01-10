@@ -99,11 +99,16 @@ export class ProductPageComponent implements OnInit {
 
   increaseCount() {
     this.counter++;
-    this.updateCartItem();
+    this.qtyChange();
   }
- decreaseCount() {
+  decreaseCount() {
     this.counter--;
-    this.updateCartItem();
+    this.qtyChange();
   }
 
+  qtyChange() {
+    if (this.counter > this.productAndDiscount.productQty) this.counter = this.productAndDiscount.productQty;
+    else if (this.counter < 0) this.counter = 0;
+    this.updateCartItem();
+  }
 }

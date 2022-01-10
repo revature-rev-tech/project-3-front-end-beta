@@ -81,12 +81,12 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
-  changeQuantity(item: ItemProductAndDiscount, event: any) {
+  changeQuantity(item: ItemProductAndDiscount) {
     let newItem = new CartItem();
     newItem.cartItemId = item.cartItemId;
     newItem.cartId = item.cartId;
     newItem.productId = item.productId;
-    newItem.cartQty = event.value;
+    newItem.cartQty = item.cartQty;
     this.cartItemService.updateItemService(newItem).subscribe({
       next: response => {
 
@@ -130,7 +130,7 @@ export class CheckoutComponent implements OnInit {
   calculateDiscountedItemCost(product: ProductAndDiscount): number {
     let cost = product.productCost;
     let discountPercentage = product.discountPercentage;
-    return cost - (cost * (discountPercentage));
+    return cost - (cost * (discountPercentage / 100));
   }
   calculateSingleItemCost(product: ProductAndDiscount): number {
     return product.productCost;
@@ -138,7 +138,7 @@ export class CheckoutComponent implements OnInit {
   calculateTotalSavings(product: ProductAndDiscount): number {
     let cost = product.productCost;
     let discountPercentage = product.discountPercentage;
-    return cost * (discountPercentage);
+    return cost * (discountPercentage / 100);
   }
   calculateTotalCost(item: ItemProductAndDiscount, calcSingleItem: any) {
     return item.cartQty * calcSingleItem(item.productAndDiscount);
@@ -169,5 +169,20 @@ export class CheckoutComponent implements OnInit {
     product.productName = item.productAndDiscount.productName;
     product.productRemoved = item.productAndDiscount.productRemoved;
     return product;
+  }
+
+  increaseCount(cartcheckout: ItemProductAndDiscount) {
+    cartcheckout.cartQty++;
+    this.qtyChange(cartcheckout);
+  }
+  decreaseCount(cartcheckout: ItemProductAndDiscount) {
+    cartcheckout.cartQty--;
+    this.qtyChange(cartcheckout);
+  }
+
+  qtyChange(cartCheckout: ItemProductAndDiscount) {
+    if (cartCheckout.cartQty > cartCheckout.productAndDiscount.productQty) cartCheckout.cartQty = cartCheckout.productAndDiscount.productQty;
+    else if (cartCheckout.cartQty < 1) cartCheckout.cartQty = 1;
+    this.changeQuantity(cartCheckout);
   }
 }

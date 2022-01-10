@@ -61,8 +61,8 @@ describe('ProductAndDiscountService', () => {
 
 
       service.getProductAndDiscountService(1).subscribe((pad: any) => {
-          expect(pad.length).toBe(3);
-        });
+        expect(pad.length).toBe(3);
+      });
 
       let req = httpMock.expectOne('https://jsonplaceholder.typicode.com/productanddiscount');
       expect(req.request.method).toBe("GET");
