@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
   constructor(private token: TokenStorageService, private userService: UserService, private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.token.getToken();
+   this.isLoggedIn = !!this.token.getToken();
     if (this.token.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.token.getUser().roles;
@@ -82,23 +82,30 @@ export class ProfileComponent implements OnInit {
     this.editUser.user_id = this.currentUser.user_id;
     this.editUser.password = this.currentUser.password;
     this.currentUser = this.token.getUser();
+   
+      
   }
 
-  // getuserInfo() {
-  //   this.userService.getUserInfo(Number(sessionStorage.getItem("userId"))).subscribe(
-  //     (response) => {
-  //       this.mainUser = response;
-  //       this.editUser.userId = response.id;
-  //       this.editUser.userEmail = response.email;
-  //       this.editUser.userPassword = response.password;
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //       this.errorMsg = "ERROR GETTING USER INFOMATION!!!";
-  //     }
-  //   );
-  // }
+  getuserInfo() {
+     this.userService.getAUserService(Number(sessionStorage.getItem("userId"))).subscribe(
+       (response) => {
+      //  this.editUser = response;
+        this.editUser.user_id = response.user_id;
+        this.editUser.email = response.email;
+        this.editUser.username = response.username;
+        this.editUser.password  = response.password;
+        this.editUser.first_name = response.first_name;
+        this.editUser.last_name = response.last_name;
+        this.editUser.address = response.address;
+        this.editUser.contact = response.contact;
+         console.log(response);
+       },
+       (error) => {
+        console.log(error);
+         this.errorMsg = "ERROR GETTING USER INFOMATION!!!";
+       }
+     );
+   }
   
   toggleAdd(){
     if(this.flag){
@@ -110,6 +117,7 @@ export class ProfileComponent implements OnInit {
 
   updatedUser(){
     console.log(this.editUser)
+    this.editUser.user_id = this.currentUser.user_id;
     this.userService.updateUserService(this.editUser).subscribe(
       (response) => {
      this.currentUser = response      
