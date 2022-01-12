@@ -32,7 +32,7 @@ describe('TransactionService', () => {
       service.sendTransaction(transactionStub).subscribe(res => {
         expect(res).toEqual(transactionStub);
       });
-      const req = httpTestingController.expectOne('HTTP_ROUTE_GOES_HERE');
+      const req = httpTestingController.expectOne(service.baseUrl + "/post");
       expect(req.request.method).toEqual('POST');
       req.flush(transactionStub);
       httpTestingController.verify();

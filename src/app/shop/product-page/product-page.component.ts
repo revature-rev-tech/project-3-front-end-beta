@@ -33,6 +33,7 @@ export class ProductPageComponent implements OnInit {
   reviews: UserReview[] = [];
   reviewForm: Review = new Review();
   averageRating: number = 0.0;
+  productLoaded: boolean = false;
   reviewRatings = {
     "five": 0,
     "four": 0,
@@ -66,6 +67,7 @@ export class ProductPageComponent implements OnInit {
       next: response => {
         console.log(response);
         this.productAndDiscount = response;
+        this.productLoaded = true;
       },
       error: error => {
         console.log(error);
@@ -76,6 +78,7 @@ export class ProductPageComponent implements OnInit {
     this.cartAndItemsService.getCartAndItemsWithUserIdService(this.userId).subscribe({
       next: response => {
         this.cartAndItems = response;
+
       },
       error: error => {
         console.log(error);
@@ -226,6 +229,7 @@ export class ProductPageComponent implements OnInit {
     })
     return userFound;
   }
+
 
 
 }
